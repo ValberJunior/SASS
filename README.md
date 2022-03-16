@@ -1,3 +1,4 @@
+![bannerlp](https://user-images.githubusercontent.com/84424883/158625229-f6cd32a0-0585-452a-b715-b20ae16e551e.png)
 # PROJETO DO CURSO DE SASS - ALURA
 
 ##  Projeto com finalidade de por em prática a didática sobre o SASS.
