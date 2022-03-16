@@ -1,4 +1,3 @@
-![bannerlp](https://user-images.githubusercontent.com/84424883/158625229-f6cd32a0-0585-452a-b715-b20ae16e551e.png)
 # PROJETO DO CURSO DE SASS - ALURA
 
 ##  Projeto com finalidade de por em prática a didática sobre o SASS.
@@ -29,6 +28,9 @@
 
 
 ### print da página criada para fins didáticos:<br><br>
+
+![Pink and White Modern Business Instagram Post](https://user-images.githubusercontent.com/84424883/158625598-a56712ec-5da1-4b9a-aade-cd24cabcb662.jpg)
+
 
 <br>![screencapture-127-0-0-1-5500-index-html-2022-03-16-11_28_37](https://user-images.githubusercontent.com/84424883/158613737-0e7569f4-3282-4978-b126-749d5537a2f8.png)
 
