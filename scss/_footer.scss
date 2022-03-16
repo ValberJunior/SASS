@@ -1,0 +1,19 @@
+/* Footer */
+
+.footer{
+    text-align: center;
+    padding: 20px 0px;
+
+
+
+    background-color: $color2;
+
+    &__logo{
+        max-width: 100px;
+    }
+
+    &__txt{
+        margin: auto;
+        @include fontSize(14px);
+    }
+}

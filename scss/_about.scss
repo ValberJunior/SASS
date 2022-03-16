@@ -1,0 +1,97 @@
+/*About.html*/
+
+.about{
+    width: 80%;
+    margin: 0 auto 40px;
+
+    @include for-phone-only{
+        width: 90%;
+    }
+
+    &__title{
+        background-color: $color2;
+        text-align: center;
+        padding: 20px;
+    }
+
+    &__h1{
+        @include fontSize(22px);
+        color: $color3;
+        letter-spacing: 1px;
+        @extend %half-margin-top, %no-margin-right, %default-margin-bottom, %no-margin-left;
+    }
+
+    .breadcrumb{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        &__link{
+            @include fontSize(12px);
+            text-decoration: none;
+            color: $color3;
+
+            &:hover{
+                text-decoration: underline;
+                color: $color1;
+            }
+        }
+
+        &__img{
+            width: 10px;
+            margin: 8px;
+        }
+    
+    }
+
+    &__img{
+        width: 100%;
+        @extend %double-margin-bottom;
+    }
+
+    &__intro{
+        font-weight: 100;
+        color: $color3;
+        width: 70%;
+        margin: 30px auto;
+        text-align: center;
+        @include fontSize(16px);
+
+        @include for-phone-only{
+            width: 90%;
+        }
+    }
+
+    &__split{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+
+        @include for-phone-only{
+            flex-direction: column;
+        }
+    }
+
+    &__img-description{
+        width: $img-width;
+
+        @include for-phone-only{
+            width: 80%;
+        }
+    }
+
+    &__txt{
+        width: calc(100% - #{$img-width});
+
+        @include for-phone-only{
+            width: 90%;
+        }
+    }
+
+    &__p{
+        @include fontSize(14px);
+        padding: 10px 20px;
+        color: $color3;
+    }
+}

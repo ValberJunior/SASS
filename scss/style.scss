@@ -1,0 +1,280 @@
+
+/// variaveis
+
+$color1: #a050be;
+$color2: #eaeabe;
+$color3: #464646;
+$color4: #ffca1d;
+
+$img-width: 45%;
+
+//placeholders Selector
+
+%no-decoration{text-decoration: none;}
+%u-decoration{text-decoration:underline;}
+
+//mixins
+
+@mixin reset-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin flx($property, $jty-cnt){
+    display: flex;
+    #{$property}: #{$jty-cnt};
+}
+
+//mixins for media queries
+@mixin for-phone-only{
+    @media(max-width: 767.98px){
+        @content;
+    }
+}
+
+@mixin for-tablet-only{
+    @media(min-width: 768px) and (max-width: 1199.98px){
+        @content;
+    }
+}
+
+@mixin for-desktop-only{
+    @media(min-width: 1200px){
+        @content;
+    }
+}
+
+//functions
+
+@function calculateRem($size){
+    @return calc($size / 16px) * 1rem;
+}
+
+//Um mixin para transformar o fontsize através da function
+@mixin fontSize($size){
+    font-size: calculateRem($size);
+}
+
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*Imports*/
+
+@import 'header', 'footer', 'about', 'article', 'collection', 'contact';
+
+
+/*each*/
+$directions: top, bottom, left, right;
+$layout-margin-size: 10px;
+
+@each $direction in $directions{
+    %no-margin-#{$direction} {margin-#{$direction}: 0};
+    %default-margin-#{$direction} {margin-#{$direction}: $layout-margin-size};
+    %double-margin-#{$direction} {margin-#{$direction}: $layout-margin-size * 2};
+    %half-margin-#{$direction} {margin-#{$direction}: calc($layout-margin-size / 2)};
+}
+
+
+
+/*Index.html*/
+
+/*Main*/
+
+.main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__content{
+
+        width: 70%;
+        padding: 40px 8px;
+
+        @include for-phone-only{
+            width: 100%;
+        }
+    }
+
+    &__post{
+        text-align: center;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__title{
+        text-decoration: none;
+        @include fontSize(22px);
+        color: $color3;
+        letter-spacing: 1.5px;
+
+        &:hover{
+            color: $color1;
+        }
+    }
+
+    &__subtitle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @extend %default-margin-top, %double-margin-bottom;
+    }
+
+    &__date{
+        @extend %no-margin-top, %no-margin-bottom, %default-margin-left, %default-margin-right;
+        @include fontSize(12px);
+        font-style: italic;
+    }
+
+    &__tag{
+        @include fontSize(14px);
+        padding: 5px 7px;
+        color: $color1;
+        border: 1px solid $color1;
+        @extend %no-margin-top, %no-margin-bottom, %default-margin-left, %default-margin-right;
+    }
+
+
+    &__details{
+        border: 1px solid $color2;
+    }
+
+    &__img{
+        width: 100%;
+    }
+
+    &__description{
+        padding: 40px 10px 25px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        @include fontSize(14px);
+    }
+
+    &__btn{
+        text-decoration: none;
+        @include fontSize(16px);
+        letter-spacing: 1.5px;
+        color: $color1;
+        background-color: $color4;
+        padding: 10px 20px;
+        transition: all .3s linear;
+
+        &:hover{
+            background-color: $color1;
+            color: $color4;
+        }
+    }
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid $color2 ;
+        margin-top: 30px;
+    }
+
+    &__author{
+        width: 50%;
+        border-right: 1px solid $color2
+    }
+
+    &__p{
+        @include fontSize(14px);
+        color: $color3;
+        @extend %default-margin-top, %default-margin-bottom;
+    }
+
+    &__comments{
+        width: 50%;
+    }
+
+    &__a{
+        text-decoration: none;
+        @include fontSize(14px);
+        color: $color3;
+        @extend %default-margin-top, %default-margin-bottom, %no-margin-left, %no-margin-right;
+
+        &:hover{
+            color: $color1;
+        }
+    }
+
+    &__sidebar{
+        width: 25%;
+        padding: 40px 10px;
+
+        @include for-phone-only{
+            width: 100%;
+        }
+    }
+
+    .sidebar{
+        &__top{
+            border: 1px solid $color2;
+        }
+
+        &__title{
+            background-color: $color4;
+            text-align: center;
+            padding: 10px 20px;
+            @extend %no-margin-top, %no-margin-bottom, %no-margin-left, %no-margin-right;
+            letter-spacing: 1.5px;
+        }
+
+        &__posts{
+            @include reset-list();
+        }
+
+        &__list{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px 0px;
+
+            &:not(:last-child){
+                border-bottom: 1px dashed $color2;
+            }
+        }
+
+        &__img{
+            
+            width: 40%;
+        }
+        &__details{
+            width: 50%;
+            padding-left: 10px;
+        }
+
+        &__post-title{
+            @include fontSize(14px);
+            color: $color1;
+            @extend %no-decoration;
+
+            &:hover{
+                @extend %u-decoration;
+            }
+        }
+
+        &__post-date{
+            @include fontSize(12px);
+            margin: 5px 0 0 0;
+        }
+
+
+    }
+
+
+}
+
+
+
+
+
+
